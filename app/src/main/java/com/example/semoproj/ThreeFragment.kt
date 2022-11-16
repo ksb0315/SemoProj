@@ -1,6 +1,7 @@
 package com.example.semoproj
 
 import android.content.Context
+import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,10 +10,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.semoproj.databinding.FragmentThreeBinding
+import com.example.semoproj.databinding.ItemRecyclerviewSnapBinding
 
 
 class ThreeFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,7 +21,6 @@ class ThreeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentThreeBinding.inflate(inflater, container, false)
-
         val datas3 = mutableListOf<MutableList<String>>()
 
         val name : List<String> = listOf("옛날포장마차",
@@ -53,49 +53,9 @@ class ThreeFragment : Fragment() {
             "무림객잔",
             "마리",
             "신헤어라인3미용실",
-            "삼천포건어물",
-            "고운맛식품",
-            "공원보리밥",
-            "이룸치과기공소",
-            "주도락",
-            "들바다푸드시스템",
-            "명가식품",
-            "리스본주점",
-            "둥지보신탕",
-            "미니카페",
-            "대하축산",
-            "코메루",
-            "휴대폰ACC",
-            "똘똘이동태전문식당",
-            "커피명가",
-            "김도영쌩얼미인",
-            "카카오pcCULB",
-            "이앤권헤어살롱",
-            "탑스쿨",
-            "스타벅스",
-            "이음도예공방",
-            "협신전기",
-            "미팜스튜디오",
-            "백운장여관",
-            "복권나라",
-            "상아마을",
-            "신토불이",
-            "서순자손수제비",
-            "애플",
-            "나이스식육",
-            "광원수산.",
-            "스랍음악학원",
-            "로엠동성로",
-            "정봉이닭발",
-            "카페나니아",
-            "나윤라이프",
-            "MR우드닥터",
-            "동경세탁",
-            "원진수퍼",
-            "루크안경"
         )
 
-        for(i in 1..50){
+        for(i in 1..30){
             val temp = mutableListOf<String>()
             temp.add(i.toString())
             temp.add(name[i-1])
@@ -104,12 +64,11 @@ class ThreeFragment : Fragment() {
 
         val layoutManager = LinearLayoutManager(activity)
         binding.recyclerViewSnapOuter.layoutManager=layoutManager
+
         val adapter = MyAdapter3(datas3)
-        //val adapter2 = MyAdapter3_1(datas3)
-
         binding.recyclerViewSnapOuter.adapter=adapter
-        binding.recyclerViewSnapOuter.addItemDecoration(MyDecoration3(activity as Context))
 
+        binding.recyclerViewSnapOuter.addItemDecoration(MyDecoration3(activity as Context))
         binding.recyclerViewSnapOuter.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
 
         return binding.root

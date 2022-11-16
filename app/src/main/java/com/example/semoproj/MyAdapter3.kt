@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.semoproj.databinding.ItemRecyclerviewBinding
 import com.example.semoproj.databinding.ItemRecyclerviewSnapBinding
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 class MyAdapter3(val datas: MutableList<MutableList<String>>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -27,6 +28,14 @@ class MyAdapter3(val datas: MutableList<MutableList<String>>): RecyclerView.Adap
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding=(holder as MyViewHolder).binding
         binding.whoRankSnap.text = "User${position+1}의 Ranking Chart"
+
+        binding.RecyclerViewSnap.layoutManager = LinearLayoutManager(binding.RecyclerViewSnap.context)
+
+        val adapter = MyAdapter3_1(datas)
+        binding.RecyclerViewSnap.adapter = adapter
+
+        //binding.RecyclerViewSnap.addItemDecoration(MyDecoration3_1(this as Context))
+        //binding.RecyclerViewSnap.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
     }
 }
 

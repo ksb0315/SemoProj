@@ -6,62 +6,73 @@
 
     <TextView
         android:id="@+id/who_rank_snap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"/>
+
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="순위"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="상호명"/>
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/RecyclerView_snap"
-                android:layout_width="match_parent"
-                android:layout_height="0dp">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-        </LinearLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="150dp">
 
         <TextView
+            android:id="@+id/n_likes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="67"
-            android:textSize="15dp"/>
+            android:textSize="30dp"
+            android:layout_gravity="right"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="좋아요"/>
+            android:text="좋아요"
+            android:layout_gravity="right"/>
         <TextView
+            android:id="@+id/n_dislikes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="33"
-            android:textSize="15dp"/>
+            android:textSize="30dp"
+            android:layout_gravity="right"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="싫어요"/>
-
+            android:text="싫어요"
+            android:layout_gravity="right"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="순위"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="5dp"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#FF000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="상호명"
+            android:textColor="@color/black"
+            android:padding="5dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerView_snap"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 
 </LinearLayout>
