@@ -4,15 +4,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="16dp"
-    android:layout_margin="8dp">
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/rank_data"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/item_data"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="16dp" />
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/score_data"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"/>
 </LinearLayout>

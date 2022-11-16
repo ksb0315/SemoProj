@@ -20,16 +20,20 @@ class OneFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentOneBinding.inflate(inflater, container, false)
 
-        val datas = mutableListOf<String>()
-        for(i in 1..20){
-            datas.add("player $i")
+        val datas = mutableListOf<MutableList<String>>()
+        for(i in 1..50){
+            val temp = mutableListOf<String>()
+            temp.add(i.toString())
+            temp.add("player $i")
+            temp.add((5-i*0.02f).toString())
+            datas.add(temp)
         }
 
         val layoutManager = LinearLayoutManager(activity)
-        binding.recyclerview.layoutManager=layoutManager
+        binding.recyclerView.layoutManager=layoutManager
         val adapter=MyAdapter(datas)
-        binding.recyclerview.adapter=adapter
-        binding.recyclerview.addItemDecoration(MyDecoration(activity as Context))
+        binding.recyclerView.adapter=adapter
+        binding.recyclerView.addItemDecoration(MyDecoration(activity as Context))
 
         return binding.root
     }
