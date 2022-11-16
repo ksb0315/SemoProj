@@ -32,9 +32,9 @@ class TwoFragment : Fragment() {
 
         val layoutManager = LinearLayoutManager(activity)
         binding.recyclerView.layoutManager=layoutManager
-        val adapter=MyAdapter(datas)
+        val adapter=MyAdapter2(datas)
         binding.recyclerView.adapter=adapter
-        binding.recyclerView.addItemDecoration(MyDecoration(activity as Context))
+        binding.recyclerView.addItemDecoration(MyDecoration2(activity as Context))
 
         return binding.root    }
 

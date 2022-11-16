@@ -9,9 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.semoproj.databinding.ItemRecyclerview2Binding
 import com.example.semoproj.databinding.ItemRecyclerviewBinding
 
-class MyViewHolder2(val binding: ItemRecyclerviewBinding): RecyclerView.ViewHolder(binding.root)
+class MyViewHolder2(val binding: ItemRecyclerview2Binding): RecyclerView.ViewHolder(binding.root)
 
 class MyAdapter2(val datas: MutableList<MutableList<String>>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -20,13 +21,13 @@ class MyAdapter2(val datas: MutableList<MutableList<String>>): RecyclerView.Adap
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder
-            = MyViewHolder(ItemRecyclerviewBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+            = MyViewHolder2(ItemRecyclerview2Binding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val binding=(holder as MyViewHolder).binding
+        val binding=(holder as MyViewHolder2).binding
         binding.rankData.text= datas[position][0]
-        binding.itemData.text= datas[position][1]
-        binding.scoreData.text= datas[position][2]
+        binding.UserIDData.text= datas[position][1]
+        binding.likeData.text= datas[position][2]
     }
 }
 
