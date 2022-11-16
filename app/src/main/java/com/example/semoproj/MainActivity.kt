@@ -37,13 +37,7 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabs, binding.viewpager) { tab, position ->
             tab.text = "Tab${position +1}"
         }.attach()
-
-        binding.fab.setOnClickListener {
-            when(binding.fab.isExtended) {
-                true -> binding.fab.shrink()
-                false -> binding.fab.extend()
-            }
-        }
+        
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
