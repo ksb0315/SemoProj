@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
                 false -> binding.fab.extend()
             }
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
