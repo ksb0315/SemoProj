@@ -31,10 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        toggle = ActionBarDrawerToggle(this, binding.drawer, R.string.drawer_opened,
-            R.string.drawer_closed)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        toggle.syncState()
         // 뷰 페이지에 어댑터 적용
         val adapter = MyFragmentPagerAdapter(this)
         binding.viewpager.adapter = adapter
@@ -49,11 +45,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
