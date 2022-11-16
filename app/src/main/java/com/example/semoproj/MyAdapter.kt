@@ -12,7 +12,7 @@ import com.example.semoproj.databinding.ItemRecyclerviewBinding
 
 class MyViewHolder(val binding: ItemRecyclerviewBinding): RecyclerView.ViewHolder(binding.root)
 
-class MyAdapter(val datas: MutableList<String>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class MyAdapter(val datas: MutableList<MutableList<String>>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     override fun getItemCount(): Int{
         return datas.size
@@ -23,7 +23,9 @@ class MyAdapter(val datas: MutableList<String>): RecyclerView.Adapter<RecyclerVi
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding=(holder as MyViewHolder).binding
-        binding.itemData.text= datas[position]
+        binding.rankData.text= datas[position][0]
+        binding.itemData.text= datas[position][1]
+        binding.scoreData.text= datas[position][2]
     }
 }
 
@@ -38,12 +40,7 @@ class MyDecoration(val context: Context): RecyclerView.ItemDecoration() {
         super.getItemOffsets(outRect, view, parent, state)
         val index = parent.getChildAdapterPosition(view) + 1
 
-        if (index % 3 == 0) //left, top, right, bottom
-            outRect.set(10, 10, 10, 60)
-        else
-            outRect.set(10, 10, 10, 0)
 
-        view.setBackgroundColor(Color.parseColor("#28A0FF"))
         ViewCompat.setElevation(view, 20.0f)
 
     }
