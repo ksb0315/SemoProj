@@ -37,13 +37,16 @@
                 android:id="@+id/RecyclerView_snap"
                 android:layout_width="match_parent"
                 android:layout_height="0dp">
+
             </androidx.recyclerview.widget.RecyclerView>
+
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="67"/>
+            android:text="67"
+            android:textSize="15dp"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,7 +54,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="33"/>
+            android:text="33"
+            android:textSize="15dp"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

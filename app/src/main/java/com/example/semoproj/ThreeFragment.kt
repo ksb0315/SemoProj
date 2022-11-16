@@ -105,6 +105,8 @@ class ThreeFragment : Fragment() {
         val layoutManager = LinearLayoutManager(activity)
         binding.recyclerViewSnapOuter.layoutManager=layoutManager
         val adapter = MyAdapter3(datas3)
+        //val adapter2 = MyAdapter3_1(datas3)
+
         binding.recyclerViewSnapOuter.adapter=adapter
         binding.recyclerViewSnapOuter.addItemDecoration(MyDecoration3(activity as Context))
 
