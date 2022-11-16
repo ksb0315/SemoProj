@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.semoproj.databinding.ItemRecyclerviewBinding
 
@@ -39,7 +41,6 @@ class MyDecoration(val context: Context): RecyclerView.ItemDecoration() {
     ) {
         super.getItemOffsets(outRect, view, parent, state)
         val index = parent.getChildAdapterPosition(view) + 1
-
 
         ViewCompat.setElevation(view, 20.0f)
 

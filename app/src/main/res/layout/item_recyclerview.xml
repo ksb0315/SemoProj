@@ -10,18 +10,33 @@
         android:id="@+id/rank_data"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="5dp"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#FF000000"/>
 
     <TextView
         android:id="@+id/item_data"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:padding="5dp"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#FF000000"/>
 
     <TextView
         android:id="@+id/score_data"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="5dp"/>
 </LinearLayout>
