@@ -97,7 +97,7 @@ class OneFragment : Fragment() {
         for(i in 1..50){
             val temp = mutableListOf<String>()
             temp.add(i.toString())
-            temp.add(name[i])
+            temp.add(name[i-1])
             temp.add((round((5 - i * 0.02f) * 100) /100f).toString())
             datas.add(temp)
         }
