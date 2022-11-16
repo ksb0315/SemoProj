@@ -106,9 +106,8 @@ class OneFragment : Fragment() {
         binding.recyclerView.layoutManager=layoutManager
         val adapter=MyAdapter(datas)
         binding.recyclerView.adapter=adapter
-        binding.recyclerView.addItemDecoration(MyDecoration(activity as Context))
+        binding.recyclerView.addItemDecoration(MyDecoration(activity as Context))  
 
-        binding.recyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
 
         return binding.root
     }

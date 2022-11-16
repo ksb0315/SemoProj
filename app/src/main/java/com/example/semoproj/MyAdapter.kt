@@ -1,11 +1,14 @@
 package com.example.semoproj
 
 import android.content.Context
+import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.ColorInt
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,5 +47,25 @@ class MyDecoration(val context: Context): RecyclerView.ItemDecoration() {
 
         ViewCompat.setElevation(view, 20.0f)
 
+    }
+
+    private val paint = Paint()
+    init{
+        paint.color = Color.BLACK
+    }
+
+    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
+        val left = 0f
+        val right = parent.width
+
+        for(i in 0 until parent.childCount){
+            val child = parent.getChildAt(i)
+            val params = child.layoutParams as RecyclerView.LayoutParams
+
+            val top = (child.bottom + params.bottomMargin).toFloat()
+            val bottom = top+3f
+
+            c.drawRect(left, top, right.toFloat(), bottom, paint)
+        }
     }
 }
