@@ -29,12 +29,23 @@ class MyAdapter3(val datas: MutableList<MutableList<String>>): RecyclerView.Adap
         val binding=(holder as MyViewHolder).binding
         binding.whoRankSnap.text = "User${position+1}의 Ranking Chart"
 
-        binding.RecyclerViewSnap.layoutManager = LinearLayoutManager(binding.RecyclerViewSnap.context)
+        val datasArr = mutableListOf<MutableList<String>>()
+        for(i in 1..30){
+            val temp = mutableListOf<String>()
+            temp.add(i.toString())
+            temp.add("name ${i}")
+            datasArr.add(temp)
+        }
 
-        val adapter = MyAdapter3_1(datas)
-        binding.RecyclerViewSnap.adapter = adapter
+        val layoutManager = LinearLayoutManager(binding.RecyclerViewSnap.context)
+        binding.RecyclerViewSnap.layoutManager = layoutManager
 
-        //binding.RecyclerViewSnap.addItemDecoration(MyDecoration3_1(this as Context))
+        val adapter = MyAdapter3_1(datasArr)
+        binding.RecyclerViewSnap.adapter=adapter
+
+        //binding.RecyclerViewSnap.addItemDecoration(MyDecoration3(activity as Context))
+
+        //binding.RecyclerViewSnap.addItemDecoration(MyDecoration3_1(binding.RecyclerViewSnap.context))
         //binding.RecyclerViewSnap.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
     }
 }
