@@ -36,7 +36,7 @@ class TwoFragment : Fragment() {
         binding.recyclerView.adapter=adapter
         binding.recyclerView.addItemDecoration(MyDecoration2(activity as Context))
 
-        return binding.root    }
+        return binding.root
 
-
+    }
 }
