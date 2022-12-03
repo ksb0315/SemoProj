@@ -2,6 +2,7 @@ package com.example.semoproj
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -10,6 +11,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.semoproj.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import com.opencsv.CSVReader
+import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,7 +40,25 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabs, binding.viewpager) { tab, position ->
             tab.text = "Tab${position +1}"
         }.attach()
-        
+
+        val assetManager = this.assets
+        val inputStream = assetManager.open("thing_50.csv")
+        val reader = CSVReader(InputStreamReader(inputStream))
+        var cont = ""
+
+        var daegu_s_info : MutableList<ArrayList<String>> = arrayListOf()
+
+        val header = reader.readNext()
+        val allContent = reader.readAll()
+        for (content in allContent) {
+            cont = content.toList().toString()
+            var arr = cont.split(", ")
+            daegu_s_info.add(arr as ArrayList<String>)
+        }
+
+        for (row in daegu_s_info) {
+            Log.d("semoApp", "row : $row")
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
