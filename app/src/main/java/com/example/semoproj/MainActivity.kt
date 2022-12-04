@@ -51,10 +51,6 @@ class MainActivity : AppCompatActivity() {
         val dataReader = DataRead(assetManager, fileName)
         dataReader.dataRead()
 
-        for (row in daegu_s_info) {
-            Log.d("semoApp", "row : $row")
-        }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
