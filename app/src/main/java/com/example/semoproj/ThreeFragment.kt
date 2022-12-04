@@ -68,9 +68,6 @@ class ThreeFragment : Fragment() {
         val adapter = MyAdapter3(datas3)
         binding.recyclerViewSnapOuter.adapter=adapter
 
-        binding.recyclerViewSnapOuter.addItemDecoration(MyDecoration3(activity as Context))
-        binding.recyclerViewSnapOuter.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
-
         return binding.root
     }
 }

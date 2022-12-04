@@ -48,4 +48,3 @@ class MyDecoration3_1(val context: Context): RecyclerView.ItemDecoration() {
 
     }
 }
-

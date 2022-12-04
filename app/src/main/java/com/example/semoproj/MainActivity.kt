@@ -12,7 +12,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.semoproj.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.opencsv.CSVReader
+import java.io.FileReader
+import java.io.IOException
 import java.io.InputStreamReader
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,24 +45,16 @@ class MainActivity : AppCompatActivity() {
             tab.text = "Tab${position +1}"
         }.attach()
 
+
         val assetManager = this.assets
-        val inputStream = assetManager.open("thing_50.csv")
-        val reader = CSVReader(InputStreamReader(inputStream))
-        var cont = ""
-
-        var daegu_s_info : MutableList<ArrayList<String>> = arrayListOf()
-
-        val header = reader.readNext()
-        val allContent = reader.readAll()
-        for (content in allContent) {
-            cont = content.toList().toString()
-            var arr = cont.split(", ")
-            daegu_s_info.add(arr as ArrayList<String>)
-        }
+        val fileName = "thing_50.csv"
+        val dataReader = DataRead(assetManager, fileName)
+        dataReader.dataRead()
 
         for (row in daegu_s_info) {
             Log.d("semoApp", "row : $row")
         }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
