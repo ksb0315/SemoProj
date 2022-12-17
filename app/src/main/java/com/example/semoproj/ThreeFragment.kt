@@ -11,6 +11,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.semoproj.databinding.FragmentThreeBinding
 import com.example.semoproj.databinding.ItemRecyclerviewSnapBinding
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.lang.Thread.sleep
+import java.net.URL
+import kotlin.concurrent.thread
 
 
 class ThreeFragment : Fragment() {
@@ -21,47 +26,67 @@ class ThreeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentThreeBinding.inflate(inflater, container, false)
-        val datas3 = mutableListOf<MutableList<String>>()
+        val datas3 = mutableListOf<MutableList<MutableList<String>>>()
 
-        val name : List<String> = listOf("옛날포장마차",
-            "으뜸전산컴퓨터",
-            "박가냉면",
-            "종합꽃",
-            "장충동왕족발",
-            "NEO",
-            "한길부동산리서치",
-            "대성서점문구지도",
-            "김경숙쌤의티앤코수학학원",
-            "한남광고",
-            "노루페인트",
-            "건영공인중개사",
-            "달성천막공업사",
-            "굽네치킨",
-            "삼성상회",
-            "주원일렉콤",
-            "아가방앤컴퍼니수성동아NC점",
-            "씨에스베스트",
-            "슈에뜨",
-            "그린플라워꽃",
-            "닭S포차",
-            "비테속셈학원",
-            "태양코팅산업",
-            "통일천막공업사",
-            "미림식당",
-            "풍미식당",
-            "신정분식식당",
-            "무림객잔",
-            "마리",
-            "신헤어라인3미용실",
-        )
-
-        for(i in 1..30){
-            val temp = mutableListOf<String>()
-            temp.add(i.toString())
-            temp.add(name[i-1])
-            datas3.add(temp)
+        val url = URL("http://192.168.35.4:8080/final/test.jsp")
+        val connection = url.openConnection()
+        var inTable = false
+        var inRow = false
+        var tdCount = 0
+        var table = mutableListOf<MutableList<String>>()
+        var row = mutableListOf<String>()
+        var name = ""
+        thread {
+            BufferedReader(InputStreamReader(connection.getInputStream(), "euc-kr")).use { inp ->
+                var line: String?
+                while (inp.readLine().also { line = it } != null) {
+                    if (line != null) {
+                        if(line!!.indexOf("h2") != -1){
+                            var start = 0
+                            var end = 0
+                            for(i in 0 until line!!.length){
+                                if(line!![i] == '>'){
+                                    start = i
+                                    break
+                                }
+                            }
+                            for(i in start until line!!.length){
+                                if(line!![i] == '<'){
+                                    end = i
+                                    break
+                                }
+                            }
+                            row.add(line!!.substring(start+1, end))
+                            table.add(row)
+                            row = mutableListOf<String>()
+                        }
+                        else if (line!!.indexOf("/table") != -1) {
+                            inTable = false
+                            datas3.add(table)
+                            table = mutableListOf<MutableList<String>>()
+                        } else if (line!!.indexOf("table") != -1) {
+                            inTable = true
+                        } else if (inTable) {
+                            if (line!!.indexOf("/tr") != -1) {
+                                tdCount = 0
+                                inRow = false
+                                table.add(row)
+                                row = mutableListOf<String>()
+                            } else if (line!!.indexOf("tr") != -1) {
+                                inRow = true
+                            } else if (inRow) {
+                                if (line!!.indexOf("td") == -1) {
+                                    tdCount++
+                                    row.add(line!!)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
+        sleep(5000)
         val layoutManager = LinearLayoutManager(activity)
         binding.recyclerViewSnapOuter.layoutManager=layoutManager
 

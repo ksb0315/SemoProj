@@ -3,6 +3,7 @@ package com.example.semoproj
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Rect
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,8 +29,9 @@ class MyAdapter3_1(val datas: MutableList<MutableList<String>>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding=(holder as MyViewHolder).binding
-        binding.snapRankData.text = datas[position][0]
-        binding.snapItemData.text = datas[position][1]
+
+        binding.snapRankData.text = datas[position][1]
+        binding.snapItemData.text = datas[position][0]
     }
 }
 
