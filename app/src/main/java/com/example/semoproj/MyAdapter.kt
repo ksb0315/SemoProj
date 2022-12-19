@@ -1,6 +1,7 @@
 package com.example.semoproj
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -8,6 +9,8 @@ import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.semoproj.databinding.ItemRecyclerviewBinding
@@ -25,9 +28,9 @@ class MyAdapter(val datas: MutableList<MutableList<String>>): RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding=(holder as MyViewHolder).binding
-        binding.rankData.text= datas[position][0]
-        binding.itemData.text= datas[position][1]
-        binding.scoreData.text= datas[position][2]
+        binding.rankData.text= (position+1).toString()
+        binding.itemData.text= datas[position][0]
+        binding.scoreData.text= datas[position][1]
     }
 }
 

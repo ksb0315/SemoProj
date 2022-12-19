@@ -1,11 +1,9 @@
 package com.example.semoproj
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -14,11 +12,20 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.opencsv.CSVReader
 import java.io.FileReader
 import java.io.IOException
-import java.io.InputStreamReader
 import java.util.*
 import kotlin.collections.ArrayList
+import java.io.BufferedReader
+import java.io.DataOutputStream
+import java.io.InputStreamReader
+import java.net.URL
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
+    companion object{
+        var isLogin = false
+        lateinit var id : String
+        lateinit var password : String
+    }
 
     companion object{
         var isLogin = false
@@ -44,21 +51,19 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //setSupportActionBar(binding.toolbar)
+        val tabName = mutableListOf<String>("가게 랭킹", "유저 랭킹", "snapshot", "마이 페이지")
+        setSupportActionBar(binding.toolbar)
         // 뷰 페이지에 어댑터 적용
         val adapter = MyFragmentPagerAdapter(this)
         binding.viewpager.adapter = adapter
         TabLayoutMediator(binding.tabs, binding.viewpager) { tab, position ->
-
-            tab.text = "${tabName.get(position)}"
+            tab.text = "${tabName[position]}"
         }.attach()
-
-
+        
         val assetManager = this.assets
         val fileName = "thing_50.csv"
         val dataReader = DataRead(assetManager, fileName)
         dataReader.dataRead()
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

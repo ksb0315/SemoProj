@@ -1,7 +1,6 @@
 package com.example.semoproj
 
 import android.content.Context
-import android.content.Intent
 import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -50,30 +49,19 @@ class FourFragment : Fragment() {
                     while (bf.readLine().also { line = it } != null) {
                         if(first) {
                             val test = JSONObject(line)
-                            println(test.getString("login"))
+                            if(test.getString("login").equals("성공")){
+                                MainActivity.isLogin = true
+                            }
                             first = false
-                        }
-                        if(line!!.indexOf("성공") != -1){
-                            MainActivity.isLogin = true
                         }
                     }
                 }
+            }.join()
+
+            if(MainActivity.isLogin){
+                binding.loginLayout.visibility = View.GONE
             }
         }
-
-        binding.signUp.setOnClickListener{
-            val intent = Intent(getActivity(),SignUpActivity::class.java)
-            startActivity(intent)
-        }
-
-        /*
-        sleep(5000)
-        val layoutManager = LinearLayoutManager(activity)
-        binding.recyclerViewSnapOuter.layoutManager=layoutManager
-
-        val adapter = MyAdapter3(datas3)
-        binding.recyclerViewSnapOuter.adapter=adapter
-         */
 
         return binding.root
     }

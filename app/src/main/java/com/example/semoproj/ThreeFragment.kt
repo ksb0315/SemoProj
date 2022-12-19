@@ -12,6 +12,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.semoproj.databinding.FragmentThreeBinding
 import com.example.semoproj.databinding.ItemRecyclerviewSnapBinding
+import org.json.JSONArray
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.lang.Thread.sleep
+import java.net.URL
+import kotlin.concurrent.thread
 
 
 class ThreeFragment : Fragment() {
@@ -22,55 +29,47 @@ class ThreeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentThreeBinding.inflate(inflater, container, false)
-        val datas3 = mutableListOf<MutableList<String>>()
+        var name = mutableListOf<String>()
+        var like = mutableListOf<String>()
+        var dislike = mutableListOf<String>()
+        val datas3 = mutableListOf<MutableList<MutableList<String>>>()
 
         for (row in daegu_s_info) {
             Log.d("semoApp", "row : $row")
         }
+        val url = URL("http://192.168.35.81:8080/final/snapshot.jsp")
+        val connection = url.openConnection()
 
-        val name : List<String> = listOf("옛날포장마차",
-            "으뜸전산컴퓨터",
-            "박가냉면",
-            "종합꽃",
-            "장충동왕족발",
-            "NEO",
-            "한길부동산리서치",
-            "대성서점문구지도",
-            "김경숙쌤의티앤코수학학원",
-            "한남광고",
-            "노루페인트",
-            "건영공인중개사",
-            "달성천막공업사",
-            "굽네치킨",
-            "삼성상회",
-            "주원일렉콤",
-            "아가방앤컴퍼니수성동아NC점",
-            "씨에스베스트",
-            "슈에뜨",
-            "그린플라워꽃",
-            "닭S포차",
-            "비테속셈학원",
-            "태양코팅산업",
-            "통일천막공업사",
-            "미림식당",
-            "풍미식당",
-            "신정분식식당",
-            "무림객잔",
-            "마리",
-            "신헤어라인3미용실",
-        )
-
-        for(i in 1..30){
-            val temp = mutableListOf<String>()
-            temp.add(i.toString())
-            temp.add(name[i-1])
-            datas3.add(temp)
-        }
+        thread {
+            var first = true
+            BufferedReader(InputStreamReader(connection.getInputStream(), "euc-kr")).use { inp ->
+                var line: String?
+                while (inp.readLine().also { line = it } != null) {
+                    if(first) {
+                        val snapshotData = JSONArray(line)
+                        for(i in 0 until snapshotData.length()){
+                            val obj = snapshotData.getJSONObject(i)
+                            name.add(obj.getString("name"))
+                            like.add(obj.getString("like"))
+                            dislike.add(obj.getString("dislike"))
+                            val table = obj.getJSONArray("table")
+                            val tableData = mutableListOf<MutableList<String>>()
+                            for(j in 0 until table.length()){
+                                val row = table.getJSONObject(j)
+                                tableData.add(mutableListOf<String>(row.getString("rank"), row.getString("thingName")))
+                            }
+                            datas3.add(tableData)
+                        }
+                        first = false
+                    }
+                }
+            }
+        }.join()
 
         val layoutManager = LinearLayoutManager(activity)
         binding.recyclerViewSnapOuter.layoutManager=layoutManager
 
-        val adapter = MyAdapter3(datas3)
+        val adapter = MyAdapter3(name, like, dislike, datas3)
         binding.recyclerViewSnapOuter.adapter=adapter
 
         return binding.root
