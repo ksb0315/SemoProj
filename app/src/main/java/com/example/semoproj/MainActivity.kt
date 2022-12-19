@@ -9,16 +9,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.semoproj.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
-import com.opencsv.CSVReader
-import java.io.FileReader
-import java.io.IOException
-import java.util.*
-import kotlin.collections.ArrayList
-import java.io.BufferedReader
-import java.io.DataOutputStream
-import java.io.InputStreamReader
-import java.net.URL
-import kotlin.concurrent.thread
+
 
 class MainActivity : AppCompatActivity() {
     companion object{

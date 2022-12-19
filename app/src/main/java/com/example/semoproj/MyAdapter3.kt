@@ -29,8 +29,8 @@ class MyAdapter3(val names: MutableList<String>, val like: MutableList<String>, 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding=(holder as MyViewHolder).binding
         binding.whoRankSnap.text = "${names[position]}의 Ranking Chart"
-        binding.nLikes.text = "좋아요 : " + like[position]
-        binding.nDislikes.text = "싫어요 : " + dislike[position]
+        binding.nLikes.text = like[position]
+        binding.nDislikes.text = dislike[position]
 
         var newArr = mutableListOf<MutableList<String>>()
         val extraList = mutableListOf<String>("...", "...")
