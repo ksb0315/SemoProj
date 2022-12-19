@@ -37,7 +37,7 @@ class ThreeFragment : Fragment() {
         for (row in daegu_s_info) {
             Log.d("semoApp", "row : $row")
         }
-        val url = URL("http://192.168.35.81:8080/final/snapshot.jsp")
+        val url = URL("http://220.122.176.209:8080/final/snapshot.jsp")
         val connection = url.openConnection()
 
         thread {

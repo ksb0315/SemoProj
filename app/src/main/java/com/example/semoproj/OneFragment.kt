@@ -36,7 +36,7 @@ class OneFragment : Fragment() {
 
         val datas = mutableListOf<MutableList<String>>()
 
-        val url = URL("http://192.168.35.81:8080/final/thingRank.jsp")
+        val url = URL("http://220.122.176.209:8080/final/thingRank.jsp")
         val connection = url.openConnection()
 
         thread {

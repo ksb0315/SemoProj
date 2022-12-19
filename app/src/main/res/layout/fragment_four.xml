@@ -9,40 +9,26 @@
 
     <LinearLayout
         android:id="@+id/ll_main_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:background="@drawable/semo2"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="331dp"
-            android:layout_height="199dp"
-            android:layout_marginBottom="150sp"
-            android:background="@drawable/img_4"
-            android:gravity="center"
-            android:padding="30dp"
-            android:text="Welcome!"
-            android:textAlignment="gravity"
-            android:textColor="#000000"
-            android:textSize="23dp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="ID"
-            android:layout_marginTop="50dp"
             android:textAlignment="center"
-            android:textColor="#000000"
-            android:textColorHint="#000000" />
+            android:textColor="@color/black"
+            android:textColorHint="#000000"/>
 
         <EditText
             android:id="@+id/password"
             android:backgroundTint="#333333"
             android:hint="Password"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textColorHint="#000000"
             android:textAlignment="center"
             android:inputType="textPassword"
@@ -54,7 +40,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:gravity="center" />
+            android:gravity="center"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,7 +61,8 @@
             android:layout_height="23dp"
             android:text="계정이 없으신가요?"
             android:textColor="#000000"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:layout_marginTop="50dp"/>
 
         <Button
             android:id="@+id/signUp"
@@ -90,66 +77,169 @@
         android:id="@+id/myPageLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="75dp"
-                android:layout_marginLeft="60dp"
-                android:src="@drawable/profile_img"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="75dp">
-                <TextView
-                    android:id="@+id/name"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/profile_img"/>
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/region"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/phoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom">
 
                 <TextView
-                    android:id="@+id/region"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="My snapshot"
+                    android:textColor="@color/black"/>
 
-                <TextView
-                    android:id="@+id/phoneNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
+
                 <TextView
                     android:id="@+id/like"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_gravity="bottom"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSnap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="펼치기"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#FF000000"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#FF000000"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="순위"
+                            android:textColor="@color/black"
+                            android:gravity="center"
+                            android:padding="5dp"/>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#FF000000"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="상호명"
+                            android:textColor="@color/black"
+                            android:gravity="center"
+                            android:padding="5dp"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#FF000000"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_snap_outer"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#FF000000"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#FF000000"/>
+
             </LinearLayout>
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btnSnap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:layout_marginLeft="75dp"
-            android:text="펼치기"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_snap_outer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp">
-        </androidx.recyclerview.widget.RecyclerView>
 
         <Button
             android:id="@+id/btn_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:layout_marginLeft="75dp"
-            android:text="로그아웃"/>
+            android:text="로그아웃"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
 </LinearLayout>

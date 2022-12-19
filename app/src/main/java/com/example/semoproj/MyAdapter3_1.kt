@@ -32,6 +32,14 @@ class MyAdapter3_1(val datas: MutableList<MutableList<String>>): RecyclerView.Ad
 
         binding.snapRankData.text = datas[position][0]
         binding.snapItemData.text = datas[position][1]
+        if(datas[position][0] == "..."){
+            binding.snapRankData.visibility = View.INVISIBLE
+            binding.snapImage.visibility = View.INVISIBLE
+        }
+        else{
+            binding.snapRankData.visibility = View.VISIBLE
+            binding.snapImage.visibility = View.VISIBLE
+        }
     }
 }
 
