@@ -7,14 +7,24 @@
         <entry key="..\:/Users/sunbum/AndroidStudioProjects/SemoProj/app/src/main/res/layout/fragment_one.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/sunbum/AndroidStudioProjects/SemoProj/app/src/main/res/layout/navigation_header.xml" value="0.1125" />
         <entry key="..\:/Users/sunbum/AndroidStudioProjects/SemoProj/app/src/main/res/menu/menu_main.xml" value="0.25364583333333335" />
+        <entry key="app/src/main/res/drawable/background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.133" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.17604166666666668" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_four.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_one.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.21782836914062503" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.26586608886718754" />
         <entry key="app/src/main/res/layout/fragment_three.xml" value="0.23322683706070288" />
         <entry key="app/src/main/res/layout/fragment_two.xml" value="0.1" />
         <entry key="app/src/main/res/layout/intro_layout.xml" value="0.15625" />
         <entry key="app/src/main/res/layout/item_recyclerview.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_recyclerview2.xml" value="0.10555555555555556" />
         <entry key="app/src/main/res/layout/item_recyclerview_snap.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/item_recyclerview_snap2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout.xml" value="0.10555555555555556" />
       </map>
     </option>
   </component>

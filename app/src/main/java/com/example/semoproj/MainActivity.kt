@@ -20,12 +20,19 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        var isLogin = false
+        lateinit var id : String
+        lateinit var password : String
+    }
+
     lateinit var toggle: ActionBarDrawerToggle
+    val tabName = arrayOf<String>("랭킹", "유저랭킹", "스냅샷", "로그인")
 
     class MyFragmentPagerAdapter(activity: FragmentActivity): FragmentStateAdapter(activity){
         val fragments: List<Fragment>
         init {
-            fragments= listOf(OneFragment(), TwoFragment(), ThreeFragment())
+            fragments= listOf(OneFragment(), TwoFragment(), ThreeFragment(), FourFragment())
         }
         override fun getItemCount(): Int = fragments.size
 
@@ -37,12 +44,13 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        //setSupportActionBar(binding.toolbar)
         // 뷰 페이지에 어댑터 적용
         val adapter = MyFragmentPagerAdapter(this)
         binding.viewpager.adapter = adapter
         TabLayoutMediator(binding.tabs, binding.viewpager) { tab, position ->
-            tab.text = "Tab${position +1}"
+
+            tab.text = "${tabName.get(position)}"
         }.attach()
 
 
