@@ -123,6 +123,7 @@ class FourFragment : Fragment() {
                 binding.recyclerViewSnapOuter.adapter=adapter
 
                 if(datas.size > 5) {
+                    binding.btnSnap.text = "펼치기"
                     var viewAllData = false
                     binding.btnSnap.setOnClickListener {
                         if(viewAllData){
@@ -144,6 +145,14 @@ class FourFragment : Fragment() {
                             binding.btnSnap.text = "접기"
                         }
                     }
+                }
+
+                binding.btnLogout.setOnClickListener {
+                    binding.myPageLayout.visibility = View.GONE
+                    binding.llMainLayout.visibility = View.VISIBLE
+                    MainActivity.isLogin = false
+                    datas.clear()
+                    sendDatas.clear()
                 }
             }
         }

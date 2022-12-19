@@ -137,15 +137,13 @@
         </androidx.recyclerview.widget.RecyclerView>
 
         <Button
-            android:id="@+id/btnComment"
+            android:id="@+id/btn_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:layout_marginLeft="75dp"
-            android:text="댓글 보기"/>
-
+            android:text="로그아웃"/>
     </LinearLayout>
-
 </LinearLayout>
 
 
