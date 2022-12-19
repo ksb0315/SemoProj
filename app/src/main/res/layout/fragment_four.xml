@@ -5,19 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.semoproj.MainActivity"
-    >
+    android:orientation="vertical">
     <LinearLayout
         android:id="@+id/ll_main_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:background="@drawable/semo2"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="331dp"
             android:layout_height="199dp"
-            android:layout_marginBottom="150sp"
+            android:layout_marginBottom="285sp"
             android:background="@drawable/img_4"
             android:gravity="center"
             android:padding="30dp"
@@ -32,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="ID"
-            android:layout_marginTop="50dp"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textColorHint="#000000" />
@@ -58,24 +58,69 @@
                 android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:backgroundTint="#0597F2"/>
+            <Button
+                android:id="@+id/signUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="#0597F2"
+                android:text="회원가입" />
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="23dp"
-            android:text="계정이 없으신가요?"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-        <Button
-            android:id="@+id/signUp"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:backgroundTint="#0597F2"
-            android:text="회원가입" />
-
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_mypage_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="75dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/profile_img"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginRight="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/username_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:paddingLeft="10sp"
+                    android:text="이름 : " />
+                <TextView
+                    android:id="@+id/userLocal_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10sp"
+                    android:text="지역 : " />
+                <TextView
+                    android:id="@+id/userContact_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10sp"
+                    android:text="H.P : " />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
 
 </LinearLayout>
 
