@@ -33,7 +33,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/profile"/>
+                android:src="@drawable/profile_img"/>
             <TextView
                 android:id="@+id/who_rank_snap"
                 android:layout_width="match_parent"
