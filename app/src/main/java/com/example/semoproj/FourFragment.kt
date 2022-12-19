@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.semoproj.databinding.FragmentFourBinding
@@ -29,6 +30,8 @@ class FourFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        val toast = Toast.makeText(getActivity(),"ID, PassWord를 확인해주세요.", Toast.LENGTH_SHORT)
+
         val binding = FragmentFourBinding.inflate(inflater, container, false)
         val datas = mutableListOf<MutableList<String>>()
         val sendDatas = mutableListOf<MutableList<String>>()
@@ -39,6 +42,8 @@ class FourFragment : Fragment() {
             startActivity(intent)
         }
 
+
+        binding.loginText.visibility = View.GONE
         binding.btnLogin.setOnClickListener {
             MainActivity.id = binding.id.text.toString()
             MainActivity.password = binding.password.text.toString()
@@ -159,7 +164,11 @@ class FourFragment : Fragment() {
                     MainActivity.isLogin = false
                     datas.clear()
                     sendDatas.clear()
+                    binding.loginText.visibility = View.GONE
                 }
+            }
+            else{
+                toast.show()
             }
         }
 
