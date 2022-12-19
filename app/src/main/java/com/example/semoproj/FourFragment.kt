@@ -1,6 +1,7 @@
 package com.example.semoproj
 
 import android.content.Context
+import android.content.Intent
 import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
 import android.util.Log
@@ -32,6 +33,11 @@ class FourFragment : Fragment() {
         val datas = mutableListOf<MutableList<String>>()
         val sendDatas = mutableListOf<MutableList<String>>()
         val extraList= mutableListOf<String>("...", "...")
+
+        binding.signUp.setOnClickListener{
+            val intent = Intent(getActivity(),SignUpActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnLogin.setOnClickListener {
             MainActivity.id = binding.id.text.toString()
