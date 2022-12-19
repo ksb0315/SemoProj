@@ -27,12 +27,6 @@ class MainActivity : AppCompatActivity() {
         lateinit var password : String
     }
 
-    companion object{
-        var isLogin = false
-        lateinit var id : String
-        lateinit var password : String
-    }
-
     lateinit var toggle: ActionBarDrawerToggle
     val tabName = arrayOf<String>("랭킹", "유저랭킹", "스냅샷", "로그인")
 
@@ -52,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val tabName = mutableListOf<String>("가게 랭킹", "유저 랭킹", "snapshot", "마이 페이지")
-        setSupportActionBar(binding.toolbar)
         // 뷰 페이지에 어댑터 적용
         val adapter = MyFragmentPagerAdapter(this)
         binding.viewpager.adapter = adapter

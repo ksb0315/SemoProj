@@ -67,24 +67,6 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="50dp"
-                                android:layout_height="wrap_content"
-                                android:text="순위"
-                                android:textColor="@color/black"
-                                android:gravity="center"
-                                android:padding="5dp"/>
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="#FF000000"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="상호명"
-                                android:textColor="@color/black"
-                                android:padding="5dp"/>
                         </LinearLayout>
 
                         <View
@@ -114,24 +96,54 @@
                     android:id="@+id/btnLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
                     android:orientation="vertical">
 
+                <Button
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:backgroundTint="#FF5722"
+                    android:text="싫어요"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="right"
+                    android:padding="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="left"
+                        android:src="@drawable/like" />
                     <TextView
                         android:id="@+id/n_likes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:textColor="@color/black"
-                        android:layout_gravity="center"/>
-
+                        android:layout_gravity="right"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/dislike"
+                        android:layout_gravity="left"/>
                     <TextView
                         android:id="@+id/n_dislikes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:textColor="@color/black"
-                        android:layout_gravity="center"/>
-
+                        android:layout_gravity="right"/>
+                    </LinearLayout>
                     <Button
                         android:id="@+id/dataButton"
                         android:layout_width="80dp"
