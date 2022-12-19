@@ -45,10 +45,8 @@ class MyAdapter3(val names: MutableList<String>, val like: MutableList<String>, 
             for(i in 0 until datas[position].size){
                 newArr.add(datas[position][i])
             }
-            Log.d("test", "${position} visibility gone")
             binding.dataButton.visibility = View.GONE
         }
-        Log.d("test", "${position} ${binding.btnLayout.height}")
 
         val layoutManager = LinearLayoutManager(binding.RecyclerViewSnap.context)
         binding.RecyclerViewSnap.layoutManager = layoutManager
