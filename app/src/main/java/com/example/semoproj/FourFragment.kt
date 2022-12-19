@@ -33,7 +33,7 @@ class FourFragment : Fragment() {
             MainActivity.id = binding.id.text.toString()
             MainActivity.password = binding.password.text.toString()
 
-            val url = URL("http://192.168.35.4:8080/final/login.jsp")
+            val url = URL("http://192.168.35.81:8080/final/login.jsp")
             val postData = "id=" + MainActivity.id + "&password=" + MainActivity.password
 
             val conn = url.openConnection()
@@ -49,25 +49,19 @@ class FourFragment : Fragment() {
                     while (bf.readLine().also { line = it } != null) {
                         if(first) {
                             val test = JSONObject(line)
-                            println(test.getString("login"))
+                            if(test.getString("login").equals("성공")){
+                                MainActivity.isLogin = true
+                            }
                             first = false
-                        }
-                        if(line!!.indexOf("성공") != -1){
-                            MainActivity.isLogin = true
                         }
                     }
                 }
+            }.join()
+
+            if(MainActivity.isLogin){
+                binding.loginLayout.visibility = View.GONE
             }
         }
-
-        /*
-        sleep(5000)
-        val layoutManager = LinearLayoutManager(activity)
-        binding.recyclerViewSnapOuter.layoutManager=layoutManager
-
-        val adapter = MyAdapter3(datas3)
-        binding.recyclerViewSnapOuter.adapter=adapter
-         */
 
         return binding.root
     }

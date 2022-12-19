@@ -30,8 +30,8 @@ class MyAdapter3_1(val datas: MutableList<MutableList<String>>): RecyclerView.Ad
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding=(holder as MyViewHolder).binding
 
-        binding.snapRankData.text = datas[position][1]
-        binding.snapItemData.text = datas[position][0]
+        binding.snapRankData.text = datas[position][0]
+        binding.snapItemData.text = datas[position][1]
     }
 }
 

@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.semoproj.databinding.FragmentThreeBinding
 import com.example.semoproj.databinding.ItemRecyclerviewSnapBinding
+import org.json.JSONArray
+import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.Thread.sleep
@@ -26,71 +28,44 @@ class ThreeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentThreeBinding.inflate(inflater, container, false)
+        var name = mutableListOf<String>()
+        var like = mutableListOf<String>()
+        var dislike = mutableListOf<String>()
         val datas3 = mutableListOf<MutableList<MutableList<String>>>()
 
-        val url = URL("http://192.168.35.4:8080/final/test.jsp")
+        val url = URL("http://192.168.35.81:8080/final/snapshot.jsp")
         val connection = url.openConnection()
-        var inTable = false
-        var inRow = false
-        var tdCount = 0
-        var table = mutableListOf<MutableList<String>>()
-        var row = mutableListOf<String>()
-        var name = ""
+
         thread {
+            var first = true
             BufferedReader(InputStreamReader(connection.getInputStream(), "euc-kr")).use { inp ->
                 var line: String?
                 while (inp.readLine().also { line = it } != null) {
-                    if (line != null) {
-                        if(line!!.indexOf("h2") != -1){
-                            var start = 0
-                            var end = 0
-                            for(i in 0 until line!!.length){
-                                if(line!![i] == '>'){
-                                    start = i
-                                    break
-                                }
+                    if(first) {
+                        val snapshotData = JSONArray(line)
+                        for(i in 0 until snapshotData.length()){
+                            val obj = snapshotData.getJSONObject(i)
+                            name.add(obj.getString("name"))
+                            like.add(obj.getString("like"))
+                            dislike.add(obj.getString("dislike"))
+                            val table = obj.getJSONArray("table")
+                            val tableData = mutableListOf<MutableList<String>>()
+                            for(j in 0 until table.length()){
+                                val row = table.getJSONObject(j)
+                                tableData.add(mutableListOf<String>(row.getString("rank"), row.getString("thingName")))
                             }
-                            for(i in start until line!!.length){
-                                if(line!![i] == '<'){
-                                    end = i
-                                    break
-                                }
-                            }
-                            row.add(line!!.substring(start+1, end))
-                            table.add(row)
-                            row = mutableListOf<String>()
+                            datas3.add(tableData)
                         }
-                        else if (line!!.indexOf("/table") != -1) {
-                            inTable = false
-                            datas3.add(table)
-                            table = mutableListOf<MutableList<String>>()
-                        } else if (line!!.indexOf("table") != -1) {
-                            inTable = true
-                        } else if (inTable) {
-                            if (line!!.indexOf("/tr") != -1) {
-                                tdCount = 0
-                                inRow = false
-                                table.add(row)
-                                row = mutableListOf<String>()
-                            } else if (line!!.indexOf("tr") != -1) {
-                                inRow = true
-                            } else if (inRow) {
-                                if (line!!.indexOf("td") == -1) {
-                                    tdCount++
-                                    row.add(line!!)
-                                }
-                            }
-                        }
+                        first = false
                     }
                 }
             }
-        }
+        }.join()
 
-        sleep(5000)
         val layoutManager = LinearLayoutManager(activity)
         binding.recyclerViewSnapOuter.layoutManager=layoutManager
 
-        val adapter = MyAdapter3(datas3)
+        val adapter = MyAdapter3(name, like, dislike, datas3)
         binding.recyclerViewSnapOuter.adapter=adapter
 
         return binding.root

@@ -9,6 +9,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.semoproj.databinding.FragmentOneBinding
 import com.example.semoproj.databinding.FragmentTwoBinding
+import org.json.JSONArray
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.URL
+import kotlin.concurrent.thread
 
 
 class TwoFragment : Fragment() {
@@ -19,19 +24,31 @@ class TwoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentTwoBinding.inflate(inflater, container, false)
-
         val datas = mutableListOf<MutableList<String>>()
 
-        for(i in 1..50){
-            val temp = mutableListOf<String>()
-            temp.add(i.toString())
-            temp.add("User$i")
-            temp.add((874-i*5).toString())
-            datas.add(temp)
-        }
+        val url = URL("http://192.168.35.81:8080/final/userRank.jsp")
+        val connection = url.openConnection()
+
+        thread {
+            var first = true
+            BufferedReader(InputStreamReader(connection.getInputStream(), "euc-kr")).use { inp ->
+                var line: String?
+                while (inp.readLine().also { line = it } != null) {
+                    if(first) {
+                        val userRank = JSONArray(line)
+                        for(i in 0 until userRank.length()){
+                            val row = userRank.getJSONObject(i)
+                            datas.add(mutableListOf<String>(row.getString("name"), row.getString("like")))
+                        }
+                        first = false
+                    }
+                }
+            }
+        }.join()
 
         val layoutManager = LinearLayoutManager(activity)
         binding.recyclerView.layoutManager=layoutManager
+
         val adapter=MyAdapter2(datas)
         binding.recyclerView.adapter=adapter
         binding.recyclerView.addItemDecoration(MyDecoration2(activity as Context))

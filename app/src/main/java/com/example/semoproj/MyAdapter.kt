@@ -28,9 +28,9 @@ class MyAdapter(val datas: MutableList<MutableList<String>>): RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding=(holder as MyViewHolder).binding
-        binding.rankData.text= datas[position][0]
-        binding.itemData.text= datas[position][1]
-        binding.scoreData.text= datas[position][2]
+        binding.rankData.text= (position+1).toString()
+        binding.itemData.text= datas[position][0]
+        binding.scoreData.text= datas[position][1]
     }
 }
 
