@@ -31,7 +31,7 @@
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:background="#FF000000"/>
-
+    
     <TextView
         android:id="@+id/score_data"
         android:layout_width="50dp"

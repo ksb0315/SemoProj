@@ -3,6 +3,7 @@ package com.example.semoproj
 import android.content.Context
 import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,10 @@ class ThreeFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentThreeBinding.inflate(inflater, container, false)
         val datas3 = mutableListOf<MutableList<String>>()
+
+        for (row in daegu_s_info) {
+            Log.d("semoApp", "row : $row")
+        }
 
         val name : List<String> = listOf("옛날포장마차",
             "으뜸전산컴퓨터",

@@ -2,6 +2,7 @@ package com.example.semoproj
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,10 @@ class OneFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentOneBinding.inflate(inflater, container, false)
+
+        for (row in daegu_s_info) {
+            Log.d("semoApp", "row : $row")
+        }
 
         val datas = mutableListOf<MutableList<String>>()
         val name : List<String> = listOf("옛날포장마차",
