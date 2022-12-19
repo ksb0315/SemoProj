@@ -15,7 +15,7 @@
         android:padding="5dp"/>
 
     <View
-        android:layout_width="1dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="#FF000000"/>
     <ImageView
@@ -31,7 +31,7 @@
         android:padding="5dp"/>
 
     <View
-        android:layout_width="1dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="#FF000000"/>
     <ImageView

@@ -15,10 +15,13 @@
         android:padding="5dp"/>
 
     <View
-        android:layout_width="1dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="#FF000000"/>
-
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:src="@drawable/semo_ic"/>
     <TextView
         android:id="@+id/snap_item_data"
         android:layout_width="0dp"
