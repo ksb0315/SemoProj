@@ -18,7 +18,10 @@
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:background="#FF000000"/>
-
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/semo_ic"/>
     <TextView
         android:id="@+id/item_data"
         android:layout_width="0dp"
@@ -31,12 +34,17 @@
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:background="#FF000000"/>
-    
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:src="@drawable/star"/>
+
     <TextView
         android:id="@+id/score_data"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:gravity="center"
+        android:gravity="left"
         android:padding="5dp"/>
 </LinearLayout>
