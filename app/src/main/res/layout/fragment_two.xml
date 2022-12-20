@@ -4,37 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:text="유저 랭킹"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:gravity="center">
+        android:textColor="@color/black"
+        android:gravity="center" />
 
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="순위"
-            android:textColor="@color/black"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="닉네임"
-            android:textColor="@color/black"
-            android:layout_marginLeft="25dp"/>
-
-        <TextView
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:text="좋아요 수"
-            android:textColor="@color/black"
-            android:gravity="left"/>
-
-    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
