@@ -42,7 +42,6 @@ class FourFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.loginText.visibility = View.GONE
         binding.btnLogin.setOnClickListener {
             MainActivity.id = binding.id.text.toString()
             MainActivity.password = binding.password.text.toString()
@@ -163,7 +162,6 @@ class FourFragment : Fragment() {
                     MainActivity.isLogin = false
                     datas.clear()
                     sendDatas.clear()
-                    binding.loginText.visibility = View.GONE
                     binding.id.setText("")
                     binding.password.setText("")
                 }

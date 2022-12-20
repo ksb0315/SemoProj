@@ -16,13 +16,15 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="336dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:src="@drawable/semo_ic2" />
 
         <EditText
             android:id="@+id/id"
-            android:layout_width="313dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
             android:hint="ID"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -30,26 +32,22 @@
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="313dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
             android:backgroundTint="#333333"
             android:hint="Password"
             android:inputType="textPassword"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textColorHint="#000000" />
-        <TextView
-            android:id="@+id/login_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:gravity="center"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="50dp">
             <Button
                 android:id="@+id/btn_login"
                 android:layout_marginRight="10dp"
