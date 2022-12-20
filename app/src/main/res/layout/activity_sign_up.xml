@@ -36,7 +36,7 @@
                     android:id="@+id/user_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아이디를 입력해주세요"
+                    android:hint="아이디를 입력해주세요"
                     android:textColor="#808080"
                     android:textSize="15dp" />
             </LinearLayout>
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:text="비밀번호를 입력해주세요"
+                    android:hint="비밀번호를 입력해주세요"
                     android:textColor="#808080"
                     android:textSize="15dp" />
             </LinearLayout>
@@ -82,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:text="비밀번호를 입력해주세요"
+                    android:hint="비밀번호를 입력해주세요"
                     android:textColor="#808080" />
             </LinearLayout>
 
@@ -103,7 +103,7 @@
                     android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="이름을 입력해주세요"
+                    android:hint="이름을 입력해주세요"
                     android:textColor="#808080"
                     android:textSize="15dp" />
             </LinearLayout>
@@ -125,7 +125,7 @@
                     android:id="@+id/userContact"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="연락처를 입력하세요"
+                    android:hint="연락처를 입력하세요"
                     android:textColor="#808080"
                     android:textSize="15dp" />
             </LinearLayout>
