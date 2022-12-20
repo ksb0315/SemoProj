@@ -26,7 +26,7 @@ class TwoFragment : Fragment() {
         val binding = FragmentTwoBinding.inflate(inflater, container, false)
         val datas = mutableListOf<MutableList<String>>()
 
-        val url = URL("http://220.122.176.209:8080/final/userRank.jsp")
+        val url = URL("http://" + MainActivity.ip + ":8080/final/userRank.jsp")
         val connection = url.openConnection()
 
         thread {

@@ -47,7 +47,7 @@ class FourFragment : Fragment() {
             MainActivity.id = binding.id.text.toString()
             MainActivity.password = binding.password.text.toString()
 
-            val url = URL("http://220.122.176.209:8080/final/login.jsp")
+            val url = URL("http://" + MainActivity.ip + ":8080/final/login.jsp")
             val postData = "id=" + MainActivity.id + "&password=" + MainActivity.password
 
             val conn = url.openConnection()
@@ -76,7 +76,7 @@ class FourFragment : Fragment() {
                 binding.llMainLayout.visibility = View.GONE
                 binding.myPageLayout.visibility = View.VISIBLE
 
-                val url = URL("http://220.122.176.209:8080/final/myPage.jsp")
+                val url = URL("http://" + MainActivity.ip + ":8080/final/myPage.jsp")
                 val postData = "id=" + MainActivity.id
 
                 val conn = url.openConnection()

@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         var isLogin = false
         lateinit var id : String
         lateinit var password : String
+        val ip = "192.168.35.81"
     }
 
     lateinit var toggle: ActionBarDrawerToggle
